@@ -1,0 +1,17 @@
+/*
+1 - Set cur to index 1 and calculate the total sum of positive differences of consecutive elements in the array.
+*/
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int cur = 1, total_profit = 0;
+        while(cur < prices.size()){
+            if(prices[cur] > prices[cur-1]){
+                total_profit = total_profit + prices[cur] - prices[cur-1];
+            }
+            cur++;
+        }
+        return total_profit;
+    }
+};
