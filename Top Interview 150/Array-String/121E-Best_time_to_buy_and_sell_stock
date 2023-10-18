@@ -1,0 +1,25 @@
+/*
+1 - Set the left and right pointers to 0th and 1st index resp.
+2 - While right is in bounds of array length:
+        i -> if right > left calculate max_profit
+        ii -> else set left to right and increment right by one.
+*/
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int l = 0;
+        int r = 1;
+        int max_profit = 0;
+        while(r < prices.size()){
+            if(prices[r] < prices[l]){
+                l = r;
+            }
+            else{
+                max_profit = max(max_profit, prices[r] - prices[l]);
+            }
+            r++;
+        }
+        return max_profit;
+    }
+};
