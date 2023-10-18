@@ -1,0 +1,17 @@
+/*
+1 - Initially the goal will be the last index and i will iterate from last second to the first index
+2 - The goal will be reduced if the ith value is greater than or equal to the goal th value i.e. check if we can jump from i to goal.
+*/
+
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int goal = nums.size() - 1;
+        for(int i = nums.size() - 2; i >= 0; i--){
+            if(nums[i] >= goal - i){
+                goal = i;
+            }
+        }
+        return goal == 0;
+    }
+};
